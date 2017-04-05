@@ -1,0 +1,160 @@
+body{
+    background-color: yellowgreen;
+    transition:background-color 0.5s ease;
+}
+
+h1{
+    color:white;
+}
+
+.main-body{
+    margin-top:100px;
+}
+
+.panel{
+    margin-top:50px;
+    min-height: 100px;
+}
+
+.btn{
+    margin-top:20px;
+}
+
+#quoteBox{
+    font-family: Georgia, serif;
+}
+
+#getQuote{
+    width:120px;
+    height:50px;
+    border-radius:5px;
+    color:white;
+    margin:auto;
+    transition:background-color 0.5s ease;
+    cursor: pointer;
+}
+
+.btnText{
+    position: relative;
+    top:15px;
+}
+
+cite{
+    font-style: normal;
+    font-weight:bold;
+}
+
+.quoteDivider{
+    width: 100%; 
+    text-align: center; 
+    border-bottom: 1px solid #000;
+    line-height: 0.1em;
+    margin: 10px 0 20p;
+}
+
+.quoteDivider span { 
+    background:#fff; 
+    padding:0 10px; 
+}
+
+.hrLeft{
+    float:left;
+    width:40%;
+}
+
+.hrRight{
+    float:right;
+    width:40%;
+}
+
+hr {
+    width: 40%;
+    height: 4px;
+    background-color:#333;
+    color:#FF0066;
+    border: 0 none;
+}
+
+
+
+#twitter{
+    position: relative;
+    top:12px;
+    left:28px;
+    transition:color 0.5s ease;
+}
+
+@media screen and (max-width:768px) {
+    #twitter {
+        top:0px;
+        left:0px;
+        margin-top:14px;
+    }
+}
+
+/* Array bg */
+.bgred{
+     background-color:#588C7E;
+}
+
+.bgorange{
+     background-color:#F2E394;
+}
+
+.bgyellow{
+     background-color:#F2AE72;
+}
+
+.bggreen{
+     background-color:#D96459;
+}
+
+.bgteal{
+     background-color:#8C4646;
+}
+
+.bgblue{
+     background-color:#588C7E;
+}
+
+.bgpurple{
+     background-color:#F2E394;
+}
+
+.bgnude{
+     background-color:#F2E394;
+}
+
+/* Array bg */
+
+.red{
+     color:#588C7E;
+}
+
+.orange{
+     color:#F2E394;
+}
+
+.yellow{
+     color:#F2AE72;
+}
+
+.green{
+     color:#D96459;
+}
+
+.teal{
+     color:#8C4646;
+}
+
+.blue{
+     color:#588C7E;
+}
+
+.purple{
+     color:#F2E394;
+}
+
+.nude{
+     color:#F2E394;
+}

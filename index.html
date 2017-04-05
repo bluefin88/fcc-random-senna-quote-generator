@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+    
+<!-- TO DO 
+
+Refactorize JS
+
+Potential: Put quotes in DB
+
+-->
+    
+<head>
+
+    <title>Random Quote Generator</title> 
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="bootstrap/bootstrap-theme.min.css">
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="bootstrap/bootstrap.min.js"></script>
+    <script src="https://use.fontawesome.com/488ce23061.js"></script>
+</head>
+<body>
+    <div class="container main-body">
+        <div class="row">
+            <div class="col-xs-12 text-center">
+                <h1>Senna Quotes</h1>
+                <!--<input class="btn btn-primary btn-lg" type="button" id="getQuote" value="Get Quote">-->
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 text-center">
+                <div class="panel panel-default col-sm-8 col-sm-offset-2">
+                    <div class="panel-body text-center">
+                        <div id="quoteGraphic">
+                            <div class="hrLeft">
+                                <hr align=right>
+                            </div>
+                            
+                             <div class="hrRight ">
+                                <hr align=left>
+                            </div>
+                            
+                            <i class="fa fa-quote-right fa-3x" aria-hidden="true"></i>    
+                        </div>
+                        <h4 id="quoteBox">
+                        Basic panel example
+                        </h4>
+                        <cite title="Ayrton Senna">- Ayrton Senna</cite>
+                        <div class="row">
+                            <div class="col-sm-6 col-sm-offset-3 col-xs-12 text-center btnTextVertical">
+                                <div id="getQuote" class="text-center">
+                                <h4 class="btnText">Get Quote</h4>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-3">
+                                
+                                <a id="quoteTwitter" href="https://twitter.com/intent/tweet?text=Hello%20world" target="popup" >
+                                    <i class="fa fa-twitter fa-3x" id="twitter" aria-hidden="true"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+    </div>
+    
+    <script>
+        
+        
+		var myArray = new Array();
+		myArray[0]="You must take the compromise to win, or else nothing. That means: you race or you do not.";
+		myArray[1]="You will never know the feeling of a driver when winning a race. The helmet hides feelings that cannot be understood.";
+        myArray[2]="These things bring you to reality as to how fragile you are, at the same moment you are doing something that nobody else is able to do. The same moment that you are seen as the best, the fastest and somebody that cannot be touched, you are enormously fragile.";
+        myArray[3]="I don't know driving in another way which isnt risky. Each one has to improve himself. Each driver has its limit. My limit is a little bit further than others.";
+        myArray[4]="I am not designed to come second or third. I am designed to win."
+        myArray[5]="I have no idols. I admire work, dedication and competence."
+        myArray[6]="And so you touch this limit, something happens and you suddenly can go a little bit further. With your mind power, your determination, your instinct, and the experience as well, you can fly very high."
+        myArray[7]="Being second is to be the first of the ones who lose."
+ 		
+        var counter = 0;
+        var lastCounter = 1;
+        var lastColor;
+        
+		document.getElementById("getQuote").onclick = function(){
+            
+            changeColor();
+		}
+        
+        function changeColor(){
+            
+           counter = Math.floor((Math.random() * 7) + 0);
+            if(counter === lastCounter){
+                // pushes counter forward to stop duplicates
+                counter++;
+            }
+
+            document.getElementById("quoteBox").innerHTML='&ldquo;' +myArray[counter]+'&rdquo;';
+            
+            $("#quoteTwitter").attr("href", "http://twitter.com/intent/tweet?text=" + encodeURI(myArray[counter]));
+            
+            
+            /*
+            $("#quoteTwitter").attr("onclick", "window.open('https://twitter.com/intent/tweet?text=" 
+            + encodeURI(myArray[counter]) +
+                "','name','width=600,height=400')");
+            */
+        
+            
+            
+            console.log(counter);
+            
+            lastCounter = counter; 
+            
+            var color;
+            
+            switch (lastCounter) {
+                case 0:
+                    color = "red";
+                    break;
+                case 1:
+                    color = "orange";
+                    break;
+                case 2:
+                    color = "yellow";
+                    break;
+                case 3:
+                    color = "green";
+                    break;
+                case 4:
+                    color = "teal";
+                    break;
+                case 5:
+                    color = "blue";
+                    break;
+                case 6:
+                    color = "purple";
+                    break;
+                case 7:
+                    color = "nude";
+            }
+            
+            $('body').removeClass();
+            $('body').toggleClass("bg" + color);
+            $('#getQuote').removeClass("bg" + lastColor);
+            $('#getQuote').toggleClass("bg" + color);
+            $('#twitter').removeClass(lastColor);
+            $('#twitter').toggleClass(color);
+            
+            lastColor = color; 
+        }
+        
+        
+        function loadQuote(){
+            document.getElementById("quoteBox").innerHTML='&ldquo;' +myArray[2]+'&rdquo;';
+        }
+    
+        
+        loadQuote();
+        changeColor();
+	</script>
+    
+</body>   
+
+    
+</html>
